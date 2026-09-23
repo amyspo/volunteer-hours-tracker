@@ -1,0 +1,86 @@
+:root {
+  --ink: #202b2d;
+  --muted: #647476;
+  --line: #d9e3e1;
+  --paper: #f5f7f2;
+  --panel: #ffffff;
+  --accent: #18766b;
+  --accent-dark: #10564f;
+  --warm: #e7a23b;
+  --error: #b23b3b;
+  --shadow: 0 10px 30px rgba(32, 43, 45, 0.08);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: radial-gradient(circle at top right, #e3eee8 0, var(--paper) 34rem);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.5;
+}
+
+button, input, select { font: inherit; }
+
+button, .file-button { cursor: pointer; }
+
+.app-shell { width: min(100% - 2rem, 960px); margin: 0 auto; padding: 2.5rem 0 4rem; }
+
+.page-header { max-width: 680px; margin-bottom: 2rem; }
+
+.eyebrow { margin: 0 0 .35rem; color: var(--accent); font: 700 .75rem/1.2 Arial, sans-serif; letter-spacing: .08em; text-transform: uppercase; }
+
+h1, h2, p { margin-top: 0; }
+h1 { margin-bottom: .75rem; font-size: clamp(2.4rem, 8vw, 4.5rem); line-height: .98; letter-spacing: -.04em; }
+h2 { margin-bottom: 0; font-size: 1.5rem; line-height: 1.1; }
+.intro { max-width: 530px; color: var(--muted); font-size: 1.08rem; }
+
+.panel { margin: 1rem 0; padding: 1.25rem; background: var(--panel); border: 1px solid var(--line); box-shadow: var(--shadow); }
+.section-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 1.25rem; }
+
+label { display: flex; flex-direction: column; gap: .35rem; color: var(--muted); font: 700 .8rem/1.2 Arial, sans-serif; }
+.optional { font-weight: 400; }
+input, select { width: 100%; min-height: 2.9rem; padding: .6rem .7rem; color: var(--ink); background: #fbfcfa; border: 1px solid var(--line); border-radius: 3px; }
+input:focus, select:focus, button:focus-visible { outline: 3px solid rgba(231, 162, 59, .55); outline-offset: 2px; }
+.goal-control, .month-control { width: 8.5rem; flex-shrink: 0; }
+
+.progress-summary { display: flex; gap: 2rem; margin-bottom: 1.15rem; }
+.progress-summary div { display: flex; flex-direction: column; }
+.progress-summary strong { font-size: 2rem; line-height: 1; }
+.progress-summary span, .small-text { color: var(--muted); font: .8rem Arial, sans-serif; }
+.progress-track { height: .75rem; overflow: hidden; background: #e7eeea; border-radius: 2rem; }
+.progress-bar { width: 0; height: 100%; background: var(--accent); transition: width .25s ease; }
+.small-text { margin: .65rem 0 0; }
+
+.form-grid { display: grid; gap: 1rem; margin-bottom: 1rem; }
+.primary-button, .secondary-button { min-height: 2.9rem; padding: .65rem 1rem; border: 0; border-radius: 3px; font: 700 .82rem Arial, sans-serif; }
+.primary-button { color: white; background: var(--accent); }
+.primary-button:hover { background: var(--accent-dark); }
+.secondary-button { color: var(--accent-dark); background: #e6f0eb; }
+.secondary-button:hover { background: #d5e6de; }
+.form-message { min-height: 1.2rem; margin: .7rem 0 0; color: var(--error); font: .85rem Arial, sans-serif; }
+
+.report-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: .65rem; }
+.report-grid div { padding: .9rem; background: #f3f7f3; }
+.report-grid span { display: block; color: var(--muted); font: .75rem Arial, sans-serif; }
+.report-grid strong { display: block; margin-top: .2rem; font-size: 1.5rem; }
+.report-total { border-top: 3px solid var(--warm); }
+
+.backup-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: .5rem; }
+.entries-list { display: grid; gap: .7rem; }
+.entry { display: grid; grid-template-columns: 1fr auto; gap: .75rem; padding: .9rem 0; border-top: 1px solid var(--line); }
+.entry-details { min-width: 0; }
+.entry-main { display: flex; flex-wrap: wrap; gap: .3rem .7rem; align-items: baseline; }
+.entry-date, .entry-hours { font-weight: 700; }
+.entry-type { color: var(--accent); font: 700 .78rem Arial, sans-serif; text-transform: uppercase; }
+.entry-note { margin: .25rem 0 0; color: var(--muted); font-size: .9rem; overflow-wrap: anywhere; }
+.delete-button { align-self: center; min-height: 2.5rem; padding: .5rem .75rem; color: var(--error); background: transparent; border: 1px solid #e3baba; border-radius: 3px; font: 700 .78rem Arial, sans-serif; }
+.empty-state { padding: 1.25rem 0; color: var(--muted); }
+
+@media (min-width: 680px) {
+  .app-shell { padding-top: 4rem; }
+  .panel { padding: 1.75rem; }
+  .form-grid { grid-template-columns: 1fr 1fr; }
+  .form-grid label:last-child { grid-column: 1 / -1; }
+}

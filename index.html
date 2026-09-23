@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Volunteer Hours Tracker</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="page-header">
+        <p class="eyebrow">Volunteer hours</p>
+        <h1>Track the work that matters.</h1>
+        <p class="intro">
+          Keep a simple record of your hours and see how close you are to your
+          yearly goal.
+        </p>
+      </header>
+
+      <section class="panel progress-panel" aria-labelledby="progress-heading">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Yearly progress</p>
+            <h2 id="progress-heading">
+              <span id="volunteer-year-label"></span>
+            </h2>
+          </div>
+          <label class="goal-control" for="yearly-goal"
+            >Goal (hours)
+            <input
+              id="yearly-goal"
+              type="number"
+              min="0.01"
+              step="0.01"
+              inputmode="decimal"
+            />
+          </label>
+        </div>
+        <div class="progress-summary">
+          <div><strong id="hours-done">0</strong><span>hours done</span></div>
+          <div>
+            <strong id="hours-remaining">0</strong><span>hours remaining</span>
+          </div>
+        </div>
+        <div
+          class="progress-track"
+          role="progressbar"
+          aria-label="Yearly volunteer hours progress"
+          aria-valuemin="0"
+          aria-valuemax="600"
+          aria-valuenow="0"
+        >
+          <div id="progress-bar" class="progress-bar"></div>
+        </div>
+        <p id="progress-message" class="small-text"></p>
+      </section>
+
+      <section class="panel" aria-labelledby="add-heading">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">New record</p>
+            <h2 id="add-heading">Add volunteer hours</h2>
+          </div>
+        </div>
+        <form id="entry-form">
+          <div class="form-grid">
+            <label for="entry-date"
+              >Date
+              <input id="entry-date" type="date" required />
+            </label>
+            <label for="entry-type"
+              >Work type
+              <select id="entry-type" required></select>
+            </label>
+            <label for="entry-hours"
+              >Hours
+              <input
+                id="entry-hours"
+                type="number"
+                min="0.01"
+                step="0.01"
+                inputmode="decimal"
+                placeholder="e.g. 1.5"
+                required
+              />
+            </label>
+            <label for="entry-note"
+              >Note <span class="optional">(optional)</span>
+              <input
+                id="entry-note"
+                type="text"
+                maxlength="200"
+                placeholder="What did you work on?"
+              />
+            </label>
+          </div>
+          <button class="primary-button" type="submit">Add entry</button>
+          <p id="form-message" class="form-message" role="status"></p>
+        </form>
+      </section>
+
+      <section class="panel" aria-labelledby="report-heading">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Monthly report</p>
+            <h2 id="report-heading">Hours by type</h2>
+          </div>
+          <label class="month-control" for="report-month"
+            >Month
+            <select id="report-month"></select>
+          </label>
+        </div>
+        <div class="report-grid">
+          <div>
+            <span id="type-a-label"></span><strong id="type-a-hours">0</strong>
+          </div>
+          <div>
+            <span id="type-b-label"></span><strong id="type-b-hours">0</strong>
+          </div>
+          <div class="report-total">
+            <span>Total</span><strong id="month-total">0</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="entries-heading">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Your records</p>
+            <h2 id="entries-heading">All entries</h2>
+          </div>
+          <div class="backup-actions">
+            <button id="export-button" class="secondary-button" type="button">
+              Export backup
+            </button>
+            <label class="secondary-button file-button" for="import-file"
+              >Import backup</label
+            >
+            <input
+              id="import-file"
+              type="file"
+              accept="application/json"
+              hidden
+            />
+          </div>
+        </div>
+        <div id="entries-list" class="entries-list"></div>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
