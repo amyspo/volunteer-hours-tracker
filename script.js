@@ -273,7 +273,7 @@ function startApp() {
   yearlyGoal.value = appData.goal;
 
   buildSelectors();
-  reportMonth.value = String(today.getMonth());
+  reportMonth.value = String(new Date().getMonth());
   entryForm.addEventListener("submit", addEntry);
   entriesList.addEventListener("click", deleteEntry);
   reportMonth.addEventListener("change", updateMonthlyReport);
